@@ -10,16 +10,17 @@ using System.Windows.Forms;
 
 namespace SplitDirView
 {
-    public partial class UserControl1: UserControl
+    public partial class SplitDirView: UserControl
     {
 
         private NavFolders navFolders;
         private NavFiles navFiles;
 
-        public UserControl1()
+        public SplitDirView()
         {
             InitializeComponent();
-            NavFolderSet(@"C:\Users\scott\Documents\GitHub\pyABF\data\abfs");
+            //NavFolderSet(@"C:\Users\scott\Documents\GitHub\pyABF\data\abfs");
+            SetFolder(null);
         }
 
         public event EventHandler FolderChanged;
@@ -30,10 +31,10 @@ namespace SplitDirView
                 handler(this, e);
         }
 
-        public event EventHandler FileSelected;
-        protected virtual void OnFileSelected(EventArgs e)
+        public event EventHandler FileHighlighted;
+        protected virtual void OnFileHighlighted(EventArgs e)
         {
-            var handler = FileSelected;
+            var handler = FileHighlighted;
             if (handler != null)
                 handler(this, e);
         }
@@ -55,8 +56,15 @@ namespace SplitDirView
         }
 
         public string currentFolder;
-        private void NavFolderSet(string folder)
+        private void SetFolder(string folder)
         {
+            if (folder == null)
+            {
+                lvFolders.Items.Clear();
+                lvFiles.Items.Clear();
+                return;
+            }
+
             navFolders = new NavFolders(folder);
             lvFolders.Items.Clear();
             lvFolders.Items.AddRange(LabelsToListViewItems(navFolders.GetLabels()));
@@ -71,7 +79,11 @@ namespace SplitDirView
 
         private void btnSetFolder_Click(object sender, EventArgs e)
         {
-            //NavFolderSet(@"C:\Users\scott\Documents\GitHub\pyABF\data\abfs");
+            var diag = new FolderBrowserDialog();
+            if (diag.ShowDialog() == DialogResult.OK)
+            {
+                SetFolder(diag.SelectedPath);
+            }
         }
 
         private void lvFolders_SelectedIndexChanged(object sender, EventArgs e)
@@ -96,7 +108,7 @@ namespace SplitDirView
             if (lvFolders.SelectedIndices == null || lvFolders.SelectedIndices.Count == 0)
                 return;
             string path = navFolders.folders[lvFolders.SelectedIndices[0]].path;
-            NavFolderSet(path);
+            SetFolder(path);
         }
 
         public string highlightedFile;
@@ -107,6 +119,7 @@ namespace SplitDirView
                 return;
             string path = navFiles.paths[lvFiles.SelectedIndices[0]];
             highlightedFile = path;
+            OnFileHighlighted(EventArgs.Empty);
         }
 
         public string doubleClickedFile;
@@ -121,13 +134,12 @@ namespace SplitDirView
             if (System.IO.Directory.Exists(path))
             {
                 System.Console.WriteLine($"double-clicked a DIRECTORY: {path}");
-                NavFolderSet(path);
+                SetFolder(path);
             }
             else
             {
                 System.Console.WriteLine($"double-clicked a FILE: {path}");
                 doubleClickedFile = path;
-                OnFileSelected(EventArgs.Empty);
             }
         }
 

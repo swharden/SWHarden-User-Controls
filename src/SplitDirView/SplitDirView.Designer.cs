@@ -1,6 +1,6 @@
 ﻿namespace SplitDirView
 {
-    partial class UserControl1
+    partial class SplitDirView
     {
         /// <summary>
         /// Required designer variable.
@@ -33,7 +33,7 @@
             System.Windows.Forms.ListViewItem listViewItem16 = new System.Windows.Forms.ListViewItem(" test");
             System.Windows.Forms.ListViewItem listViewItem21 = new System.Windows.Forms.ListViewItem("  folder");
             System.Windows.Forms.ListViewItem listViewItem22 = new System.Windows.Forms.ListViewItem("   path");
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UserControl1));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SplitDirView));
             System.Windows.Forms.ListViewItem listViewItem23 = new System.Windows.Forms.ListViewItem("folder", "Folder_16x.png");
             System.Windows.Forms.ListViewItem listViewItem24 = new System.Windows.Forms.ListViewItem("file", "RFile_16x.png");
             this.btnSetFolder = new System.Windows.Forms.Button();
