@@ -7,6 +7,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SplitDirView", "SplitDirVie
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SplitDirViewDemo", "SplitDirViewDemo\SplitDirViewDemo.csproj", "{49E1EEC2-56E2-4889-B3B5-A017170D4BCD}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IconGallery", "IconGallery\IconGallery.csproj", "{8A4ED308-0F55-4F4F-B21F-422920CE7A70}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IconGalleryDemo", "IconGalleryDemo\IconGalleryDemo.csproj", "{12364321-1DA3-43B8-99C9-9A8D30BA67B1}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +25,14 @@ Global
 		{49E1EEC2-56E2-4889-B3B5-A017170D4BCD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{49E1EEC2-56E2-4889-B3B5-A017170D4BCD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{49E1EEC2-56E2-4889-B3B5-A017170D4BCD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8A4ED308-0F55-4F4F-B21F-422920CE7A70}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8A4ED308-0F55-4F4F-B21F-422920CE7A70}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8A4ED308-0F55-4F4F-B21F-422920CE7A70}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8A4ED308-0F55-4F4F-B21F-422920CE7A70}.Release|Any CPU.Build.0 = Release|Any CPU
+		{12364321-1DA3-43B8-99C9-9A8D30BA67B1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{12364321-1DA3-43B8-99C9-9A8D30BA67B1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{12364321-1DA3-43B8-99C9-9A8D30BA67B1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{12364321-1DA3-43B8-99C9-9A8D30BA67B1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

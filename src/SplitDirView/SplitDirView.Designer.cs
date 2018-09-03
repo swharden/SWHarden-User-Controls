@@ -50,6 +50,7 @@
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
+            this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
@@ -65,7 +66,7 @@
             this.btnSetFolder.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btnSetFolder.Location = new System.Drawing.Point(3, 3);
             this.btnSetFolder.Name = "btnSetFolder";
-            this.btnSetFolder.Size = new System.Drawing.Size(77, 24);
+            this.btnSetFolder.Size = new System.Drawing.Size(75, 24);
             this.btnSetFolder.TabIndex = 2;
             this.btnSetFolder.Text = "Set Folder";
             this.btnSetFolder.UseVisualStyleBackColor = true;
@@ -73,6 +74,8 @@
             // 
             // lvFolders
             // 
+            this.lvFolders.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.columnHeader2});
             this.lvFolders.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lvFolders.Font = new System.Drawing.Font("Consolas", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lvFolders.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.None;
@@ -83,10 +86,10 @@
             listViewItem4});
             this.lvFolders.Location = new System.Drawing.Point(3, 33);
             this.lvFolders.Name = "lvFolders";
-            this.lvFolders.Size = new System.Drawing.Size(246, 107);
+            this.lvFolders.Size = new System.Drawing.Size(238, 107);
             this.lvFolders.TabIndex = 3;
             this.lvFolders.UseCompatibleStateImageBehavior = false;
-            this.lvFolders.View = System.Windows.Forms.View.List;
+            this.lvFolders.View = System.Windows.Forms.View.Details;
             this.lvFolders.SelectedIndexChanged += new System.EventHandler(this.lvFolders_SelectedIndexChanged);
             this.lvFolders.DoubleClick += new System.EventHandler(this.lvFolders_DoubleClick);
             // 
@@ -125,9 +128,9 @@
             // btnCopyFolder
             // 
             this.btnCopyFolder.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnCopyFolder.Location = new System.Drawing.Point(86, 3);
+            this.btnCopyFolder.Location = new System.Drawing.Point(84, 3);
             this.btnCopyFolder.Name = "btnCopyFolder";
-            this.btnCopyFolder.Size = new System.Drawing.Size(77, 24);
+            this.btnCopyFolder.Size = new System.Drawing.Size(75, 24);
             this.btnCopyFolder.TabIndex = 5;
             this.btnCopyFolder.Text = "Copy";
             this.btnCopyFolder.UseVisualStyleBackColor = true;
@@ -136,9 +139,9 @@
             // btnLaunchFolder
             // 
             this.btnLaunchFolder.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnLaunchFolder.Location = new System.Drawing.Point(169, 3);
+            this.btnLaunchFolder.Location = new System.Drawing.Point(165, 3);
             this.btnLaunchFolder.Name = "btnLaunchFolder";
-            this.btnLaunchFolder.Size = new System.Drawing.Size(80, 24);
+            this.btnLaunchFolder.Size = new System.Drawing.Size(76, 24);
             this.btnLaunchFolder.TabIndex = 6;
             this.btnLaunchFolder.Text = "Launch";
             this.btnLaunchFolder.UseVisualStyleBackColor = true;
@@ -147,9 +150,9 @@
             // btnCopyFile
             // 
             this.btnCopyFile.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnCopyFile.Location = new System.Drawing.Point(86, 3);
+            this.btnCopyFile.Location = new System.Drawing.Point(87, 3);
             this.btnCopyFile.Name = "btnCopyFile";
-            this.btnCopyFile.Size = new System.Drawing.Size(77, 24);
+            this.btnCopyFile.Size = new System.Drawing.Size(78, 24);
             this.btnCopyFile.TabIndex = 7;
             this.btnCopyFile.Text = "Copy";
             this.btnCopyFile.UseVisualStyleBackColor = true;
@@ -158,9 +161,9 @@
             // btnLaunchFile
             // 
             this.btnLaunchFile.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnLaunchFile.Location = new System.Drawing.Point(169, 3);
+            this.btnLaunchFile.Location = new System.Drawing.Point(171, 3);
             this.btnLaunchFile.Name = "btnLaunchFile";
-            this.btnLaunchFile.Size = new System.Drawing.Size(80, 24);
+            this.btnLaunchFile.Size = new System.Drawing.Size(78, 24);
             this.btnLaunchFile.TabIndex = 8;
             this.btnLaunchFile.Text = "Launch";
             this.btnLaunchFile.UseVisualStyleBackColor = true;
@@ -181,7 +184,7 @@
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 1;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(252, 30);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(244, 30);
             this.tableLayoutPanel1.TabIndex = 9;
             // 
             // tableLayoutPanel2
@@ -213,13 +216,13 @@
             this.tableLayoutPanel3.RowCount = 2;
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel3.Size = new System.Drawing.Size(252, 143);
+            this.tableLayoutPanel3.Size = new System.Drawing.Size(244, 143);
             this.tableLayoutPanel3.TabIndex = 11;
             // 
             // tableLayoutPanel4
             // 
             this.tableLayoutPanel4.ColumnCount = 1;
-            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 252F));
             this.tableLayoutPanel4.Controls.Add(this.lvFiles, 0, 0);
             this.tableLayoutPanel4.Controls.Add(this.tableLayoutPanel2, 0, 1);
             this.tableLayoutPanel4.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -228,7 +231,7 @@
             this.tableLayoutPanel4.RowCount = 2;
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
-            this.tableLayoutPanel4.Size = new System.Drawing.Size(252, 276);
+            this.tableLayoutPanel4.Size = new System.Drawing.Size(244, 276);
             this.tableLayoutPanel4.TabIndex = 12;
             // 
             // splitContainer1
@@ -245,9 +248,13 @@
             // splitContainer1.Panel2
             // 
             this.splitContainer1.Panel2.Controls.Add(this.tableLayoutPanel4);
-            this.splitContainer1.Size = new System.Drawing.Size(252, 423);
+            this.splitContainer1.Size = new System.Drawing.Size(244, 423);
             this.splitContainer1.SplitterDistance = 143;
             this.splitContainer1.TabIndex = 13;
+            // 
+            // columnHeader2
+            // 
+            this.columnHeader2.Width = 100;
             // 
             // SplitDirView
             // 
@@ -255,7 +262,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.splitContainer1);
             this.Name = "SplitDirView";
-            this.Size = new System.Drawing.Size(252, 423);
+            this.Size = new System.Drawing.Size(244, 423);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel2.ResumeLayout(false);
             this.tableLayoutPanel3.ResumeLayout(false);
@@ -283,5 +290,6 @@
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel4;
         private System.Windows.Forms.SplitContainer splitContainer1;
+        private System.Windows.Forms.ColumnHeader columnHeader2;
     }
 }

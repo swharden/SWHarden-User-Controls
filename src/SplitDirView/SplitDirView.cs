@@ -68,6 +68,7 @@ namespace SplitDirView
             navFolders = new NavFolders(folder);
             lvFolders.Items.Clear();
             lvFolders.Items.AddRange(LabelsToListViewItems(navFolders.GetLabels()));
+            lvFolders.Columns[0].Width = -1;
 
             // after populating the folder list, select the last folder
             lvFolders.Items[lvFolders.Items.Count - 1].Selected = true;
@@ -99,7 +100,7 @@ namespace SplitDirView
             navFiles = new NavFiles(path);
             lvFiles.Items.Clear();
             lvFiles.Items.AddRange(LabelsToListViewItems(navFiles.GetPathNames(), 2));
-            lvFiles.Columns[0].Width = -2;
+            lvFiles.Columns[0].Width = -1;
         }
 
         private void lvFolders_DoubleClick(object sender, EventArgs e)
@@ -145,22 +146,26 @@ namespace SplitDirView
 
         private void btnCopyFolder_Click(object sender, EventArgs e)
         {
-            Clipboard.SetText(currentFolder);
+            if (currentFolder != null)
+                Clipboard.SetText(currentFolder);
         }
 
         private void btnCopyFile_Click(object sender, EventArgs e)
         {
-            Clipboard.SetText(highlightedFile);
+            if (highlightedFile != null)
+                Clipboard.SetText(highlightedFile);
         }
 
         private void btnLaunchFolder_Click(object sender, EventArgs e)
         {
-            System.Diagnostics.Process.Start($"{currentFolder}");
+            if (currentFolder != null)
+                System.Diagnostics.Process.Start($"{currentFolder}");
         }
 
         private void btnLaunchFile_Click(object sender, EventArgs e)
         {
-            System.Diagnostics.Process.Start($"{highlightedFile}");
+            if (highlightedFile != null)
+                System.Diagnostics.Process.Start($"{highlightedFile}");
         }
     }
 }
