@@ -1,2 +1,12 @@
 # SWHarden-User-Controls
-A collection of custom user controls for .NET
+This repository contains a growing collection of custom user controls for .NET (mostly written in C#). Projects are intended to be copy/pasted out of this repository and into whatever project you're working on.
+
+## SplitDirView
+A directory/file browser which gets away from using trees and nodes. The advantage is that very little horizontal screen space is required while navigating through very deep folder structures. 
+
+<img src="/src/SplitDirViewDemo/demo.png" width="500">
+
+## IconGallery
+Show a folder of images as a collection of large icons. Single-clicking or double-clicking icons can do things. Right-clicking icons drops a menu to let you copy the path to clipboard or launch the image in explorer.
+
+<img src="/src/IconGalleryDemo/demo.png" width="500" >
