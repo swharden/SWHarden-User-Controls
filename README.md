@@ -10,3 +10,10 @@ A directory/file browser which gets away from using trees and nodes. The advanta
 Show a folder of images as a collection of large icons. Single-clicking or double-clicking icons can do things. Right-clicking icons drops a menu to let you copy the path to clipboard or launch the image in explorer.
 
 <img src="/src/IconGalleryDemo/demo.png" width="500" >
+
+## ABFbrowseLib
+This library provides directory navigation tools like grouping of ABFs into parent/children relationships. 
+It also can read contents right out of ABF files to determine things like sweep count and comments. It can
+return all this data as a DataGridView DataTable.
+
+<img src="/src/ABFbrowseLibDemo/demo.png" width="500" >
