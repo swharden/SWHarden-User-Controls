@@ -1,51 +1,52 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Data;
 using System.Drawing;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using ABFbrowseLib;
 
-namespace ABFbrowseLibTest
+namespace ABFbrowseLib
 {
-    public partial class Form1 : Form
+    public partial class ABFbrowseUC : UserControl
     {
-
         public ABFfolder abfFolder;
+        public bool showParentsOnly = false;
 
-        public Form1()
+        public ABFbrowseUC()
         {
             InitializeComponent();
-
-            //string startupFolder = @"D:\abfData\abfs-real";
-            string startupFolder = @"D:\abfData\abfs-real";
-            if (System.IO.Directory.Exists(startupFolder))
-            {
-                abfFolder = new ABFfolder(startupFolder);
-                dataGridView1.DataSource = abfFolder.GetDataTable(cbParentsOnly.Checked);
-            }
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        public void SetFolder(string folder)
         {
-            var diag = new FolderBrowserDialog();
-            if (diag.ShowDialog() == DialogResult.OK)
-            {
-                abfFolder = new ABFfolder(diag.SelectedPath);
-                dataGridView1.DataSource = abfFolder.GetDataTable(cbParentsOnly.Checked);
-            }
+            abfFolder = new ABFfolder(folder);
+            dataGridView1.DataSource = abfFolder.GetDataTable(showParentsOnly);
         }
 
+        public event EventHandler ABFclicked;
+        protected virtual void OnABFclicked(EventArgs e)
+        {
+            var handler = ABFclicked;
+            if (handler != null)
+                handler(this, e);
+        }
+
+        public string selectedABF;
         private void dataGridView1_MouseClick(object sender, MouseEventArgs e)
         {
+
+            // figure out what ABF was clicked
+            int thisRow = dataGridView1.HitTest(e.X, e.Y).RowIndex;
+            string abfFilePath = dataGridView1.Rows[thisRow].Cells[2].Value.ToString();
+            string abfFileName = System.IO.Path.GetFileName(abfFilePath);
+            selectedABF = abfFilePath;
+            OnABFclicked(EventArgs.Empty);
+
             if (e.Button == MouseButtons.Right)
             {
-                int thisRow = dataGridView1.HitTest(e.X, e.Y).RowIndex;
-                string abfFilePath = dataGridView1.Rows[thisRow].Cells[1].Value.ToString();
-                string abfFileName = System.IO.Path.GetFileName(abfFilePath);
 
                 dataGridView1.ClearSelection();
                 dataGridView1.Rows[thisRow].Selected = true;
@@ -54,7 +55,6 @@ namespace ABFbrowseLibTest
                 m.MenuItems.Add(new MenuItem($"Copy Path to {abfFileName}"));
                 m.MenuItems.Add(new MenuItem($"Launch {abfFileName} in ClampFit"));
                 m.Show(dataGridView1, new Point(e.X, e.Y));
-
             }
         }
 
@@ -69,11 +69,17 @@ namespace ABFbrowseLibTest
                 if (Convert.ToDouble(cellValue) > 1)
                 {
                     dataGridView1.Rows[row].DefaultCellStyle.BackColor = Color.LightPink;
-                } else
+                }
+                else
                 {
                     dataGridView1.Rows[row].DefaultCellStyle.BackColor = Color.LightGreen;
                 }
             }
+        }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }
