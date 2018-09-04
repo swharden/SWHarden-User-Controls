@@ -11,6 +11,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IconGallery", "IconGallery\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IconGalleryDemo", "IconGalleryDemo\IconGalleryDemo.csproj", "{12364321-1DA3-43B8-99C9-9A8D30BA67B1}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ABFbrowseLib", "ABFbrowseLib\ABFbrowseLib.csproj", "{87B347A5-2058-47B6-B197-49B0E58072AE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ABFbrowseLibDemo", "ABFbrowseLibDemo\ABFbrowseLibDemo.csproj", "{8DC3EFE7-C6AA-416A-9AEE-F703B34D9406}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +37,14 @@ Global
 		{12364321-1DA3-43B8-99C9-9A8D30BA67B1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{12364321-1DA3-43B8-99C9-9A8D30BA67B1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{12364321-1DA3-43B8-99C9-9A8D30BA67B1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{87B347A5-2058-47B6-B197-49B0E58072AE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{87B347A5-2058-47B6-B197-49B0E58072AE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{87B347A5-2058-47B6-B197-49B0E58072AE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{87B347A5-2058-47B6-B197-49B0E58072AE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8DC3EFE7-C6AA-416A-9AEE-F703B34D9406}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8DC3EFE7-C6AA-416A-9AEE-F703B34D9406}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8DC3EFE7-C6AA-416A-9AEE-F703B34D9406}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8DC3EFE7-C6AA-416A-9AEE-F703B34D9406}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
