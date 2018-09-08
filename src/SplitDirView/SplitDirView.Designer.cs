@@ -38,6 +38,7 @@
             System.Windows.Forms.ListViewItem listViewItem6 = new System.Windows.Forms.ListViewItem("file", "RFile_16x.png");
             this.btnSetFolder = new System.Windows.Forms.Button();
             this.lvFolders = new System.Windows.Forms.ListView();
+            this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             this.lvFiles = new System.Windows.Forms.ListView();
             this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -50,7 +51,6 @@
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
-            this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
@@ -93,6 +93,10 @@
             this.lvFolders.SelectedIndexChanged += new System.EventHandler(this.lvFolders_SelectedIndexChanged);
             this.lvFolders.DoubleClick += new System.EventHandler(this.lvFolders_DoubleClick);
             // 
+            // columnHeader2
+            // 
+            this.columnHeader2.Width = 100;
+            // 
             // imageList1
             // 
             this.imageList1.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList1.ImageStream")));
@@ -113,7 +117,7 @@
             listViewItem6});
             this.lvFiles.Location = new System.Drawing.Point(3, 3);
             this.lvFiles.Name = "lvFiles";
-            this.lvFiles.Size = new System.Drawing.Size(246, 240);
+            this.lvFiles.Size = new System.Drawing.Size(238, 240);
             this.lvFiles.SmallImageList = this.imageList1;
             this.lvFiles.TabIndex = 4;
             this.lvFiles.UseCompatibleStateImageBehavior = false;
@@ -150,9 +154,9 @@
             // btnCopyFile
             // 
             this.btnCopyFile.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnCopyFile.Location = new System.Drawing.Point(87, 3);
+            this.btnCopyFile.Location = new System.Drawing.Point(84, 3);
             this.btnCopyFile.Name = "btnCopyFile";
-            this.btnCopyFile.Size = new System.Drawing.Size(78, 24);
+            this.btnCopyFile.Size = new System.Drawing.Size(75, 24);
             this.btnCopyFile.TabIndex = 7;
             this.btnCopyFile.Text = "Copy";
             this.btnCopyFile.UseVisualStyleBackColor = true;
@@ -161,9 +165,9 @@
             // btnLaunchFile
             // 
             this.btnLaunchFile.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnLaunchFile.Location = new System.Drawing.Point(171, 3);
+            this.btnLaunchFile.Location = new System.Drawing.Point(165, 3);
             this.btnLaunchFile.Name = "btnLaunchFile";
-            this.btnLaunchFile.Size = new System.Drawing.Size(78, 24);
+            this.btnLaunchFile.Size = new System.Drawing.Size(76, 24);
             this.btnLaunchFile.TabIndex = 8;
             this.btnLaunchFile.Text = "Launch";
             this.btnLaunchFile.UseVisualStyleBackColor = true;
@@ -201,7 +205,7 @@
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 1;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(252, 30);
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(244, 30);
             this.tableLayoutPanel2.TabIndex = 10;
             // 
             // tableLayoutPanel3
@@ -222,7 +226,7 @@
             // tableLayoutPanel4
             // 
             this.tableLayoutPanel4.ColumnCount = 1;
-            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 252F));
+            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel4.Controls.Add(this.lvFiles, 0, 0);
             this.tableLayoutPanel4.Controls.Add(this.tableLayoutPanel2, 0, 1);
             this.tableLayoutPanel4.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -251,10 +255,6 @@
             this.splitContainer1.Size = new System.Drawing.Size(244, 423);
             this.splitContainer1.SplitterDistance = 143;
             this.splitContainer1.TabIndex = 13;
-            // 
-            // columnHeader2
-            // 
-            this.columnHeader2.Width = 100;
             // 
             // SplitDirView
             // 
