@@ -56,7 +56,7 @@ namespace SplitDirView
         }
 
         public string currentFolder;
-        private void SetFolder(string folder)
+        public void SetFolder(string folder)
         {
             if (folder == null)
             {
