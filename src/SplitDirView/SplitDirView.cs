@@ -78,6 +78,13 @@ namespace SplitDirView
             OnFolderChanged(EventArgs.Empty);
         }
 
+        public void SetFont(float fontSize, string fontName = "Consolas")
+        {
+            var font = new System.Drawing.Font(fontName, fontSize);
+            lvFolders.Font = font;
+            lvFiles.Font = font;
+        }
+
         private void btnSetFolder_Click(object sender, EventArgs e)
         {
             var diag = new FolderBrowserDialog();
