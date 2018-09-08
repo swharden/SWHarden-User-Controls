@@ -1,4 +1,4 @@
-# SWHarden-User-Controls
+# User Controls by Scott Harden
 This repository contains a growing collection of custom user controls and standalone libraries for .NET (mostly written in C#). Projects are intended to be copy/pasted out of this repository and into whatever project you're working on.
 
 ## Tools with their own project pages
