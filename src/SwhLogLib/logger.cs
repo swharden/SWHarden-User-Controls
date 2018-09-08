@@ -17,17 +17,18 @@ namespace SwhLogLib
         public const int CRITICAL = 3;
     }
 
-    public class SwhLog
+    public class Logger
     {
         public int logLevel;
         public bool silent = false;
         public string logText = "";
         public string loggerName;
 
-        public SwhLog(string loggerName = "noName", int logLevel = LogLevel.DEBUG)
+        public Logger(string loggerName = "noName", int logLevel = LogLevel.DEBUG)
         {
             this.logLevel = logLevel;
             this.loggerName = loggerName;
+            Log($"starting logger: {loggerName}", LogLevel.DEBUG);
         }
 
         public void Debug(string message){Log(message, LogLevel.DEBUG);}
