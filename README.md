@@ -1,6 +1,10 @@
 # SWHarden-User-Controls
 This repository contains a growing collection of custom user controls and standalone libraries for .NET (mostly written in C#). Projects are intended to be copy/pasted out of this repository and into whatever project you're working on.
 
+## Tools with their own project pages
+* **[ScottPlot](https://github.com/swharden/ScottPlot)** - Interactive Graphing Library for .NET
+* **[SciTIF](https://github.com/swharden/SciTIF)** - a .NET library for scientific analysis of TIF files with a focus on fluorescent microscopy
+
 ## SplitDirView
 **SplitDirView provides a tree-like directory browser which minimizes horizontal width.** It does this by avoiding the use of using trees and nodes (which are space ineffecient horizontally) and uses exclusively listboxes. The advantage is that very little horizontal screen space is required while navigating through highly nested folder structures. SplitDirView is intended to be used for projects which want to preserve screen space for data analysis rather than directory navigation.
 
