@@ -78,6 +78,18 @@ namespace SplitDirView
             OnFolderChanged(EventArgs.Empty);
         }
 
+        /// <summary>
+        /// simulate single-clicking a file in the file list
+        /// </summary>
+        public void SelectFile(int index)
+        {
+            if (index < lvFiles.Items.Count)
+            {
+                lvFiles.Items[index].Selected = true;
+                lvFiles.Select();
+            }
+        }
+
         public void SetFont(float fontSize, string fontName = "Consolas")
         {
             var font = new System.Drawing.Font(fontName, fontSize);
