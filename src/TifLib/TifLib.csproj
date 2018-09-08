@@ -44,6 +44,7 @@
     <Compile Include="Logger.cs" />
     <Compile Include="TifLib.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TifStructs.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="readme.md" />

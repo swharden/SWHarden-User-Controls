@@ -37,7 +37,7 @@ namespace TifLibDemo
             lblFileName.Text = System.IO.Path.GetFileName(tifFilePath);
             tif = new TifFile(tifFilePath);
             rtbMeta.Text = tif.Info();
-            rtbLog.Text = tif.Info();
+            rtbLog.Text = tif.log.logText;
         }
     }
 }
