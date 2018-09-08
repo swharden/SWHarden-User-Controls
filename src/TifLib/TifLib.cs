@@ -8,15 +8,16 @@ namespace TifLib
 {
     public class TifFile
     {
+        public Logger log;
         public TifFile(string filePath)
         {
-
+            log = new Logger("TifLib");
+            log.Info($"Loading abf file: {filePath}");
         }
 
         public string Info()
         {
-            string msg = "something cool";
-            return msg;
+            return log.logText;
         }
     }
 }

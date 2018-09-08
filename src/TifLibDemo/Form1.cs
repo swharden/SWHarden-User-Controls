@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+
 using TifLib;
 
 namespace TifLibDemo
@@ -17,12 +18,26 @@ namespace TifLibDemo
         public Form1()
         {
             InitializeComponent();
-            tif = new TifFile("");
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            splitDirView1.SetFont(8);
+            splitDirView1.SetFolder(@"D:\demoData\tifs");
+            splitDirView1.SelectFile(2);
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            richTextBox1.Text = tif.Info();
+        }
+
+        private void splitDirView1_FileHighlighted(object sender, EventArgs e)
+        {
+            string tifFilePath = splitDirView1.highlightedFile;
+            lblFileName.Text = System.IO.Path.GetFileName(tifFilePath);
+            tif = new TifFile(tifFilePath);
+            rtbMeta.Text = tif.Info();
+            rtbLog.Text = tif.Info();
         }
     }
 }

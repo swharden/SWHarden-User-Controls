@@ -80,6 +80,10 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\SplitDirView\SplitDirView.csproj">
+      <Project>{f561ce42-c563-4ad3-ab55-b08e29557693}</Project>
+      <Name>SplitDirView</Name>
+    </ProjectReference>
     <ProjectReference Include="..\TifLib\TifLib.csproj">
       <Project>{8094cd1e-0b0e-45a7-80f5-277850067d9a}</Project>
       <Name>TifLib</Name>

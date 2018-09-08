@@ -24,6 +24,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TifLibDemo", "TifLibDemo\Ti
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TifLib", "TifLib\TifLib.csproj", "{8094CD1E-0B0E-45A7-80F5-277850067D9A}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SwhLogLib", "SwhLogLib\SwhLogLib.csproj", "{6633916B-08D0-43F4-BE1F-57363E59F60B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -62,6 +64,10 @@ Global
 		{8094CD1E-0B0E-45A7-80F5-277850067D9A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8094CD1E-0B0E-45A7-80F5-277850067D9A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8094CD1E-0B0E-45A7-80F5-277850067D9A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6633916B-08D0-43F4-BE1F-57363E59F60B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6633916B-08D0-43F4-BE1F-57363E59F60B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6633916B-08D0-43F4-BE1F-57363E59F60B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6633916B-08D0-43F4-BE1F-57363E59F60B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
