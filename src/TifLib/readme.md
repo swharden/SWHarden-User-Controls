@@ -7,5 +7,7 @@ https://github.com/swharden/SWHarden-User-Controls#tiflib
 * [TIFF File Format Summary](https://www.fileformat.info/format/tiff/egff.htm#TIFF.FO)
 * [TIFF File Format](http://www.fileformat.info/format/tiff/corion.htm)
 
+![](https://www.fileformat.info/format/tiff/gtiff02.png)
+
 ## Notes
 * still working...
