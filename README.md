@@ -11,7 +11,7 @@ A secondary purpose of this library is to demonstrate how to write a scientific-
 * [View TifLib notes and documentation](src/TifLib)
 
 ## SplitDirView
-**SplitDirView provides a tree-like directory browser which minimizes horizontal width.** It does this by avoiding the use of using trees and nodes (which are space ineffecient horizontally) and uses exclusively listboxes. The advantage is that very little horizontal screen space is required while navigating through very deep folder structures. SplitDirView is intended to be used for projects which want to preserve screen space for data analysis rather than directory navigation.
+**SplitDirView provides a tree-like directory browser which minimizes horizontal width.** It does this by avoiding the use of using trees and nodes (which are space ineffecient horizontally) and uses exclusively listboxes. The advantage is that very little horizontal screen space is required while navigating through highly nested folder structures. SplitDirView is intended to be used for projects which want to preserve screen space for data analysis rather than directory navigation.
 
 ![](/src/SplitDirViewDemo/demo.png)
 
