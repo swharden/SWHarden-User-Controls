@@ -8,7 +8,7 @@ This repository contains a growing collection of custom user controls and standa
 
 A secondary purpose of this library is to demonstrate how to write a scientific-grade analysis routine which reads fluorescence intensity directly out of a TIF (which should be regarded scientifically as the source data). This is highly useful for fluorescennt microscopy (e.g., immunohistochemistry, colocalization assessment, image enhancement) and fluorescennt videomicroscopy (time-series calcium-sensitive fluorophore analysis such as Fluo-4 or GCaMP), especially when quantitative ratiometeric analyses are required. TifLib is specifically written with scientific analysis in mind, and was created to be easily ported to other programming languages.
 
-* [View TifLib notes and documentation](src/TifLib)
+* [TifLib developer notes](src/TifLib)
 
 ## SplitDirView
 **SplitDirView provides a tree-like directory browser which minimizes horizontal width.** It does this by avoiding the use of using trees and nodes (which are space ineffecient horizontally) and uses exclusively listboxes. The advantage is that very little horizontal screen space is required while navigating through highly nested folder structures. SplitDirView is intended to be used for projects which want to preserve screen space for data analysis rather than directory navigation.
