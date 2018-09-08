@@ -24,7 +24,7 @@ namespace TifLibDemo
         {
             splitDirView1.SetFont(8);
             splitDirView1.SetFolder(@"D:\demoData\tifs");
-            splitDirView1.SelectFile(2);
+            splitDirView1.SelectFile(4);
         }
 
         private void button1_Click(object sender, EventArgs e)

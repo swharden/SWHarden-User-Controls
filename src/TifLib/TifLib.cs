@@ -15,7 +15,7 @@ namespace TifLib
 
         public Logger log;
 
-        private bool littleEndian;
+        private bool littleEndian = true;
 
         public TifFile(string filePath)
         {
@@ -32,6 +32,10 @@ namespace TifLib
             FileOpen();
             ReadHeader();
             FileClose();
+            if (validTif)
+                log.Debug("TIF read successfully");
+            else
+                log.Warn("!!!FILE DID NOT READ SUCCESSFULLY!!!");
         }
 
         BinaryReader br;
@@ -40,6 +44,11 @@ namespace TifLib
             log.Debug("opening file");
             br = new BinaryReader(File.Open(filePath, FileMode.Open));
             br.BaseStream.Seek(0, SeekOrigin.Begin);
+        }
+
+        public void FileSeek(int byteLocation)
+        {
+            br.BaseStream.Seek(byteLocation, SeekOrigin.Begin);
         }
 
         public void FileClose()
@@ -52,15 +61,22 @@ namespace TifLib
         {
             if (bytePosition >= 0)
                 br.BaseStream.Seek(bytePosition, SeekOrigin.Begin);
-            return br.ReadBytes(charCount);
+            byte[] bytes = br.ReadBytes(charCount);
+            if (!littleEndian)
+                Array.Reverse(bytes);
+            return bytes;
+        }
+
+        private int FileReadUInt16(int bytePosition = -1)
+        {
+            byte[] bytes = FileReadBytes(2, bytePosition);
+            return (int)BitConverter.ToUInt16(bytes, 0);
         }
 
         private int FileReadUInt32(int bytePosition = -1)
         {
             byte[] bytes = FileReadBytes(4, bytePosition);
-            if (!littleEndian)
-                Array.Reverse(bytes);
-            return (int) BitConverter.ToUInt32(bytes, 0);
+            return (int)BitConverter.ToUInt32(bytes, 0);
         }
 
         private string BytesToString(byte[] bytes)
@@ -77,7 +93,7 @@ namespace TifLib
             return hexString;
         }
 
-        private string BytesToFormattedString(byte[] bytes)
+        private string BytesToPretty(byte[] bytes)
         {
             string[] strBytes = new string[bytes.Length];
             for (int i = 0; i < bytes.Length; i++)
@@ -90,19 +106,12 @@ namespace TifLib
 
         public void ReadHeader()
         {
-            // READ THE IDENTIFIER
-            // the identifier says whether data is little-endian or big-endian.
-            // it is always the first two bytes of the file
-            // "II" (4949) for little-endian
-            // "MM" (4D4D) for big-endian
-            // anything else indicates this is not a valid TIF file
-            string identifier = BytesToHexstring(FileReadBytes(2, 0));
-            string version = BytesToHexstring(FileReadBytes(2));
-            string firstFour = identifier + version;
+            // create a hex string from the first four bytes
+            FileSeek(0);
+            string firstFour = BytesToHexstring(FileReadBytes(4));
+            log.Debug($"First four bytes (hex): {firstFour}");
 
-            log.Debug($"Identifier: {identifier}");
-            log.Debug($"Version: {version}");
-
+            // the first four bytes confirm TIF is valid and indicate endianness
             if (firstFour == "49492A00")
             {
                 littleEndian = true;
@@ -118,21 +127,56 @@ namespace TifLib
                 return;
             }
 
-            // READ THE OFFSET
-            // IFDOffset is a 32 - bit value that is the offset position of the first 
-            // Image File Directory in the TIFF file. This value may be passed as a 
-            // parameter to a file seek function to find the start of the image file information.
-            // If the Image File Directory occurs immediately after the header, the value of the 
-            // IFDOffset field is 08h.
-            int IFDOffset = FileReadUInt32();
-            log.Debug($"IFDOffset: {IFDOffset}");
-            if (IFDOffset > fileSize)
-            {
-                validTif = false;
-                log.Critical($"invalid IFDOffset: {IFDOffset}");
-                return;
+            // the next 4 bytes are a Uint32 indicating where the first IDF is
+            int nextIfdLocation = FileReadUInt32();
+            log.Debug($"first IFD location: {nextIfdLocation}");
+
+            // read IFDs until the last one is reached
+            while (nextIfdLocation > 0) {
+                nextIfdLocation = ReadIFD(nextIfdLocation);
             }
 
+            return;
+        }
+
+        public int ReadIFD(int ifdLocation)
+        {
+            // An Image File Directory (IFD) is a collection of information similar to a header, 
+            // and it is used to describe the bitmapped data to which it is attached.
+            // It contains enteries called "tags", each 12 bytes long.
+
+            // ensure this byte position is valid
+            if (ifdLocation > fileSize)
+            {
+                validTif = false;
+                log.Critical($"ReadIFD() called on invalid byte: {ifdLocation}");
+                return 0;
+            }
+
+            FileSeek(ifdLocation);
+            int entryCount = FileReadUInt16();
+            log.Debug($"IFD at byte {ifdLocation} has {entryCount} tags");
+
+            // each entry contains 12 bytes
+            for (int i = 0; i < entryCount; i++)
+            {
+                byte[] bytes = FileReadBytes(12);
+                string tagString = BytesToPretty(bytes);
+                log.Debug($"  tag {i}: {tagString}");
+            }
+
+            // determine if another IFD exists and where
+            int nextIfdLocation = FileReadUInt32();
+            if (nextIfdLocation == 0)
+                log.Debug($"  this was the last IFD.");
+            else
+                log.Debug($"  next IFD location: {nextIfdLocation}");
+
+            // sanity check
+            if (nextIfdLocation == ifdLocation)
+                throw new Exception("next IFD location same as this one!");
+
+            return nextIfdLocation;
         }
 
         public string Info()
@@ -140,8 +184,10 @@ namespace TifLib
             string msg = $"File: {System.IO.Path.GetFileName(filePath)}\n";
             msg += $"Full Path: {filePath}\n";
             msg += $"Valid TIF: {validTif}\n";
-            if (!validTif) return msg;
-            msg += $"Little Endian: {littleEndian}\n";
+            if (littleEndian)
+                msg += $"Byte Order: little endian (LSB last)\n";
+            else
+                msg += $"Byte Order: big endian (LSB first)\n";
             return msg;
         }
     }
