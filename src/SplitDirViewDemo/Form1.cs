@@ -29,7 +29,8 @@ namespace SplitDirViewDemo
 
         private void Form1_Load(object sender, EventArgs e)
         {
-
+            splitDirView1.SetFolder("C:/Windows/");
+            splitDirView1.SetMatchingBackColor(".exe", Color.Yellow);
         }
     }
 }
